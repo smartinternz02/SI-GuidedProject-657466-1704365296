@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMDBR</title>
+    <link href="{{ url_for('static', filename='css/prediction.css') }}" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="header2"><p class="left">Diabetic Retinopathy Classification</p> 
+    <div class="right">
+        <a href="http://127.0.0.1:5000/index.html">home</a>
+        <a href="http://127.0.0.1:5000/logout">logout</a>
+    </div>
+    </div>
+    <div class="col-sm-6">
+        <div>
+            <h4>Upload Image to identify type of DR</h4>
+    <form action = "http://localhost:5000/result" id="upload-file" method="post" enctype="multipart/form-data">
+        <label for="imageUpload" class="upload-label">
+            Choose...
+        </label>
+        <input type="file" name="image" id="imageUpload" accept=".png, .jpg, .jpeg">
+    </form>
+
+    <div class="image-section" style="display:none;">
+        <div class="img-preview">
+            <div id="imagePreview"></div>
+        </div>
+        <div>
+            <button type="button" class="btn btn-info btn-lg " id="btn-predict">Predict</button>
+        </div>
+    </div>
+
+    <div class="loader" style="display:none;"></div>
+     <h3>
+         <span id="result"> </span>
+     </h3>
+        </div>
+    </div>
+<img src="../static/css/4-Figure2-1.png">
+</body>
+ <script src="{{ url_for('static', filename='js/predict.js') }}" type="text/javascript"></script>
+</html>
