@@ -1,0 +1,13 @@
+tensorflow
+seaborn
+numpy
+Flask
+ibm-cos-sdk
+kaggle
+cloudant
+pandas
+scikit-learn    
+matplotlib
+requests
+python-dotenv
+ibm-watson

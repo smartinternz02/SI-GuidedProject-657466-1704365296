@@ -1,15 +1,22 @@
 import numpy as np
+import pandas as pd
+import tensorflow as tf
 from tensorflow.keras.models import load_model
 import os
 from tensorflow.keras.preprocessing import  image
 from tensorflow.keras.applications.inception_v3 import preprocess_input
 from flask import Flask, request, render_template, redirect, url_for
 from cloudant.client import Cloudant
+from python_dotenv import load_dotenv
+load_dotenv()
+
+user = os.getenv('Cloudant_USERNAME')
+password = os.getenv('Cloudant_PASSWORD')
 
 model = load_model('Updated-Xception-diabetic-retinopathy.h5')
 app = Flask(__name__)
 
-client = Cloudant.iam('a1bddb33-2873-4a20-b891-3bbc7f585d70-bluemix', 'AfJP9ps2RaNhdgeO5bmJdAV0Z_kprgDt4B5vAh_oo_JN' , connect=True)
+client = Cloudant.iam(user, password , connect=True)
 my_database = client.create_database('my_database')
 
 @app.route('/')
